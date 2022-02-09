@@ -13,7 +13,7 @@ btn.addEventListener("click", () => {
 		for (let i = 0; i < data.results.length; i++) {
 			let img = document.createElement("div");
 			img.className = "img";
-			img.style.backgroundImage = "url(" + data.results[i].urls.raw + ")";
+			img.style.backgroundImage = "url(" + data.results[i].urls.raw + "&w=1280&h=700" + ")";
 			gallery.appendChild(img);
 		}
 
@@ -33,7 +33,7 @@ area.addEventListener("keydown", (event) => {
 			for (let i = 0; i < data.results.length; i++) {
 				let img = document.createElement("div");
 				img.className = "img";
-				img.style.backgroundImage = "url(" + data.results[i].urls.raw + ")";
+				img.style.backgroundImage = "url(" + data.results[i].urls.raw + "&w=1280&h=700" + ")";
 				gallery.appendChild(img);
 			}
 
@@ -51,10 +51,19 @@ window.onload = async function getData() {
 	for (let i = 0; i < data.results.length; i++) {
 		let img = document.createElement("div");
 		img.className = "img";
-		img.style.backgroundImage = "url(" + data.results[i].urls.raw + ")";
+		img.style.backgroundImage = "url(" + data.results[i].urls.raw + "&w=1280&h=700" + ")";
 		gallery.appendChild(img);
 	}
 
 }
 
 
+function search(e) {
+	e.preventDefault();
+	let q = e.target.value;
+	if (q === "") {
+		$(".fa-times").css("display", "none");
+	} else {
+		$(".fa-times").css("display", "block");
+	}
+}
